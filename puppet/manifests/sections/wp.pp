@@ -1,7 +1,6 @@
 $plugins = [
   'log-deprecated-notices',
   'monster-widget',
-  'query-monitor',
   'user-switching',
   'wordpress-importer',
 
@@ -14,6 +13,7 @@ $plugins = [
 
 $github_plugins = {
     'vip-scanner' => 'https://github.com/Automattic/vip-scanner',
+    'query-monitor' => { 'url' => 'https://github.com/johnbillion/query-monitor', 'revision' => 'develop' }
 
     # WordPress.com
     'jetpack'        => 'https://github.com/Automattic/jetpack',
