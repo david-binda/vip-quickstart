@@ -11,7 +11,7 @@ define gitplugin ( $git_urls ) {
         ensure   => present,
         force    => true,
         source   => $url,
-        revision => $revision
+        revision => $revision,
         provider => git,
         require  => [
             Wp::Site['/srv/www/wp'],
