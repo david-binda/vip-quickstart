@@ -1,9 +1,17 @@
 # GitPlugin clones a git repo into the www/wp-content/plugins directory and activates it in WordPress
 define gitplugin ( $git_urls ) {
+    if is_hash( $git_urls[$title] ) {
+        $url =  $git_urls[$title][url]
+        $revision = $git_urls[$title][revision]
+    } else {
+        $url = $git_urls[$title]
+        $revision = ''
+    }
     vcsrepo { "/srv/www/wp-content/plugins/${title}" :
         ensure   => present,
         force    => true,
-        source   => $git_urls[$title],
+        source   => $url,
+        revision => $revision
         provider => git,
         require  => [
             Wp::Site['/srv/www/wp'],
